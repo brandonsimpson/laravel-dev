@@ -1,4 +1,4 @@
-language: "php"
+language: php
 
 php:
   - 5.4
@@ -7,13 +7,23 @@ php:
   - 7.0
   - hhvm
 
-before_script:
-- "composer require codeclimate/php-test-reporter --dev"
-- "composer install"
+env:
+  global:
+    - setup=basic
 
-script:
-- "phpunit --coverage-text --coverage-clover build/logs/clover.xml"
+matrix:
+  include:
+    - php: 5.4
+      env: setup=lowest
+    - php: 5.6.10
+      env: setup=stable
 
-after_script:
-#- CODECLIMATE_REPO_TOKEN=ed39dc2203786af4121cacb15d560c3fc06ffd1573f8fd125dbc071c40d40738 ./vendor/bin/test-reporter --stdout > codeclimate.json
-#- "sh -c 'if [ \"$TRAVIS_PHP_VERSION\" != \"hhvm\" ]; then curl -X POST -d @codeclimate.json -H \"Content-Type: application/json\" -H \"User-Agent: Code Climate (PHP Test Reporter v0.1.1)\" https://codeclimate.com/test_reports  ; fi'"
+sudo: false
+
+install:
+  - if [[ $setup = 'basic' ]]; then travis_retry composer install --no-interaction --prefer-source; fi
+  - if [[ $setup = 'stable' ]]; then travis_retry composer update --prefer-source --no-interaction --prefer-stable; fi
+  - if [[ $setup = 'lowest' ]]; then travis_retry composer update --prefer-source --no-interaction --prefer-lowest --prefer-stable; fi
+
+script: vendor/bin/phpunit
+
