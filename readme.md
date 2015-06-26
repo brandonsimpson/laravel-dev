@@ -1,5 +1,7 @@
 ## Laravel PHP Framework - Development Environment by Brandon Simpson
 
+[![Build Status](https://travis-ci.org/brandonsimpson/laravel-dev.svg)](https://travis-ci.org/brandonsimpson/laravel-dev)
+
 [ ![Codeship Status for brandonsimpson/laravel-dev](https://codeship.com/projects/7c387340-fe52-0132-1939-56feb28aa994/status?branch=master)](https://codeship.com/projects/88061)
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
