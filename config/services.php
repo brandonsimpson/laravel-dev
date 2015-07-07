@@ -12,9 +12,9 @@ return [
     | default location for this type of information, allowing packages
     | to have a conventional place to find your various credentials.
     |
-    */
+     */
 
-    'mailgun' => [
+    'mailgun'  => [
         'domain' => '',
         'secret' => '',
     ],
@@ -23,13 +23,13 @@ return [
         'secret' => '',
     ],
 
-    'ses' => [
+    'ses'      => [
         'key'    => '',
         'secret' => '',
         'region' => 'us-east-1',
     ],
 
-    'stripe' => [
+    'stripe'   => [
         'model'  => App\User::class,
         'key'    => '',
         'secret' => '',
