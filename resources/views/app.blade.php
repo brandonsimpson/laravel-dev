@@ -42,14 +42,13 @@
         </style>
     </head>
     <body>
+
+    	@include('partials.nav')
+
         <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-                <div class="quote">{{ Inspiring::quote() }}</div>
+        	<div class="content">
+            	@yield('content')
             </div>
-
-            @include('stats')
-
         </div>
     </body>
 </html>
